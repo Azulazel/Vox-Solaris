@@ -43,10 +43,10 @@ def mostrar_tela_calculo():
 
 def executar_calculo():
     try:
-        consumo_val = float(entry_consumo.get())
-        modelo_val = float(entry_modelo.get())
-        irradiacao_val = float(entry_irradiacao.get())
-        custo_placa_val = float(entry_custo_placa.get())
+        consumo_val = float(entry_consumo.get().replace(',', '.'))
+        modelo_val = float(entry_modelo.get().replace(',', '.'))
+        irradiacao_val = float(entry_irradiacao.get().replace(',', '.'))
+        custo_placa_val = float(entry_custo_placa.get().replace(',', '.'))
         perdas_val = 20 # Mantendo fixo
 
         resultados = calcular_rendimento_e_necessidade(

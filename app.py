@@ -34,7 +34,11 @@ def calcular_rendimento_e_necessidade(consumo, potencia_modelo_w, irradiacao_dia
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('home.html')
+
+@app.route('/calculator')
+def calculator_page():
+    return render_template('calculator.html')
 
 @app.route('/calcular', methods=['POST'])
 def calcular():
@@ -46,7 +50,7 @@ def calcular():
         perdas = 20  # Fixo
 
         resultados = calcular_rendimento_e_necessidade(consumo, potencia, irradiacao, perdas, custo)
-        return render_template('index.html', resultados=resultados)
+        return render_template('calculator.html', resultados=resultados)
 
 if __name__ == '__main__':
     app.run(debug=False)
